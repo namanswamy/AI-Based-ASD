@@ -14,9 +14,7 @@ from utils.logger import get_logger
 logger = get_logger("PR_CURVE")
 
 
-# --------------------------------------------------
 # Load dataset
-# --------------------------------------------------
 
 def load_data():
 
@@ -26,14 +24,12 @@ def load_data():
 
     logger.info(f"Loaded dataset {df.shape}")
 
-    # Convert label to binary
     y = df["Class/ASD"]
 
     if y.nunique() > 2:
         logger.warning("Multiclass detected - converting to binary")
         y = (y > 0).astype(int)
 
-    # Remove non-feature columns
     X = df.drop(
         columns=["Class/ASD", "participant_id"],
         errors="ignore"
@@ -42,9 +38,7 @@ def load_data():
     return X, y
 
 
-# --------------------------------------------------
 # Feature alignment
-# --------------------------------------------------
 
 def align_features(model, X):
 
@@ -76,9 +70,7 @@ def align_features(model, X):
     return X
 
 
-# --------------------------------------------------
 # Plot PR curve
-# --------------------------------------------------
 
 def plot_pr_curve(model_name):
 
@@ -90,14 +82,11 @@ def plot_pr_curve(model_name):
 
     X, y = load_data()
 
-    # Handle missing values
     imputer = SimpleImputer(strategy="mean")
     X = imputer.fit_transform(X)
 
-    # Align features
     X = align_features(model, pd.DataFrame(X))
 
-    # Predict probabilities
     probs = model.predict_proba(X)[:, 1]
 
     precision, recall, _ = precision_recall_curve(y, probs)
@@ -130,9 +119,7 @@ def plot_pr_curve(model_name):
     plt.close()
 
 
-# --------------------------------------------------
 # Run for all models
-# --------------------------------------------------
 
 def run():
 
