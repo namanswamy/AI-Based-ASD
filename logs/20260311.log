@@ -1,0 +1,239 @@
+2026-03-11 18:48:48,354 | INFO | Dataset shape: (704, 22)
+2026-03-11 18:48:48,354 | INFO | Loaded autism_adult.csv (704, 22)
+2026-03-11 18:48:48,365 | INFO | Dataset shape: (292, 22)
+2026-03-11 18:48:48,365 | INFO | Loaded autism_child.csv (292, 22)
+2026-03-11 18:48:48,386 | INFO | Dataset shape: (104, 22)
+2026-03-11 18:48:48,387 | INFO | Loaded autism_adolescent.csv (104, 22)
+2026-03-11 18:48:48,408 | INFO | Dataset shape: (1000, 10)
+2026-03-11 18:48:48,408 | INFO | Loaded autism_realistic.csv (1000, 10)
+2026-03-11 18:48:48,457 | INFO | Saved C:\Users\hp\Desktop\AI Based ASD\data\processed\tabular_features.csv
+2026-03-11 18:49:04,442 | INFO | Dataset shape: (704, 22)
+2026-03-11 18:49:04,442 | INFO | Loaded autism_adult.csv (704, 22)
+2026-03-11 18:49:04,442 | INFO | Dataset shape: (292, 22)
+2026-03-11 18:49:04,442 | INFO | Loaded autism_child.csv (292, 22)
+2026-03-11 18:49:04,458 | INFO | Dataset shape: (104, 22)
+2026-03-11 18:49:04,458 | INFO | Loaded autism_adolescent.csv (104, 22)
+2026-03-11 18:49:04,460 | INFO | Dataset shape: (1000, 10)
+2026-03-11 18:49:04,460 | INFO | Loaded autism_realistic.csv (1000, 10)
+2026-03-11 18:49:04,505 | INFO | Saved C:\Users\hp\Desktop\AI Based ASD\data\processed\tabular_features.csv
+2026-03-11 18:53:11,772 | INFO | Dataset shape: (76, 10)
+2026-03-11 18:53:11,772 | INFO | Dataset shape: (7, 7)
+2026-03-11 18:57:57,524 | INFO | Dataset shape: (76, 10)
+2026-03-11 18:57:57,524 | INFO | Dataset shape: (7, 7)
+2026-03-11 18:57:57,524 | INFO | Clinical dataset shape: (76, 10)
+2026-03-11 18:57:57,524 | INFO | CBCL dataset shape: (7, 7)
+2026-03-11 18:57:57,544 | WARNING | No numeric columns found. Skipping scaling.
+2026-03-11 18:57:57,547 | INFO | Clinical preprocessing completed
+2026-03-11 18:57:57,548 | INFO | Saved: C:\Users\hp\Desktop\AI Based ASD\data\processed\clinical_features.csv
+2026-03-11 18:57:57,548 | INFO | Saved: C:\Users\hp\Desktop\AI Based ASD\data\processed\cbcl_features.csv
+2026-03-11 18:58:08,620 | INFO | Loaded eye tracking (59, 5)
+2026-03-11 18:58:15,590 | INFO | Loaded eye tracking (59, 5)
+2026-03-11 19:00:04,617 | INFO | Loaded eye tracking (59, 5)
+2026-03-11 19:00:04,617 | INFO | Columns detected: Index(['ParticipantID', 'Gender', 'Age', 'Class', 'CARS Score'], dtype='object')
+2026-03-11 19:00:04,620 | INFO | Saved C:\Users\hp\Desktop\AI Based ASD\data\processed\eye_features.csv
+2026-03-11 19:01:35,932 | INFO | Loaded motor dataset (273, 20)
+2026-03-11 19:01:35,932 | INFO | Columns: ['Unnamed: 0', 'Gender', 'Age', 'Schooling', 'Breastfeeding', 'Varicella', 'Initial_Symptom', 'Mono_or_Polysymptomatic', 'Oligoclonal_Bands', 'LLSSEP', 'ULSSEP', 'VEP', 'BAEP', 'Periventricular_MRI', 'Cortical_MRI', 'Infratentorial_MRI', 'Spinal_Cord_MRI', 'Initial_EDSS', 'Final_EDSS', 'group']
+2026-03-11 19:01:35,937 | INFO | Saved motor features -> C:\Users\hp\Desktop\AI Based ASD\data\processed\motor_features.csv
+2026-03-11 19:04:24,631 | INFO | Saved C:\Users\hp\Desktop\AI Based ASD\data\processed\multimodal_dataset.csv
+2026-03-11 19:07:28,733 | INFO | Random Forest initialized
+2026-03-11 19:07:28,733 | INFO | XGBoost initialized
+2026-03-11 19:07:28,733 | INFO | SVM initialized
+2026-03-11 19:07:28,733 | INFO | LightGBM initialized
+2026-03-11 19:07:28,733 | INFO | Training random_forest
+2026-03-11 19:17:44,016 | INFO | Random Forest initialized
+2026-03-11 19:17:44,032 | INFO | XGBoost initialized
+2026-03-11 19:17:44,032 | INFO | SVM initialized
+2026-03-11 19:17:44,032 | INFO | LightGBM initialized
+2026-03-11 19:17:44,032 | INFO | Training random_forest
+2026-03-11 19:19:28,731 | INFO | Random Forest initialized
+2026-03-11 19:19:28,732 | INFO | XGBoost initialized
+2026-03-11 19:19:28,732 | INFO | SVM initialized
+2026-03-11 19:19:28,732 | INFO | LightGBM initialized
+2026-03-11 19:19:28,732 | INFO | Training random_forest
+2026-03-11 19:19:29,225 | INFO | random_forest metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:19:29,295 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\random_forest.joblib
+2026-03-11 19:19:29,296 | INFO | Training xgboost
+2026-03-11 19:19:30,055 | INFO | xgboost metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:19:30,068 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\xgboost.joblib
+2026-03-11 19:19:30,069 | INFO | Training svm
+2026-03-11 19:22:13,993 | INFO | Random Forest initialized
+2026-03-11 19:22:13,994 | INFO | XGBoost initialized
+2026-03-11 19:22:13,994 | INFO | SVM initialized
+2026-03-11 19:22:13,994 | INFO | LightGBM initialized
+2026-03-11 19:22:13,994 | INFO | Training random_forest
+2026-03-11 19:22:14,671 | INFO | random_forest metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:22:14,765 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\random_forest.joblib
+2026-03-11 19:22:14,765 | INFO | Training xgboost
+2026-03-11 19:22:15,274 | INFO | xgboost metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:22:15,281 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\xgboost.joblib
+2026-03-11 19:22:15,282 | INFO | Training svm
+2026-03-11 19:22:16,212 | INFO | svm metrics {'accuracy': 0.46904761904761905, 'precision': 0.22000566893424037, 'recall': 0.46904761904761905, 'f1_score': 0.29952149417303386}
+2026-03-11 19:22:16,214 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\svm.joblib
+2026-03-11 19:22:16,214 | INFO | Training lightgbm
+2026-03-11 19:22:18,843 | INFO | lightgbm metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:22:18,861 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\lightgbm.joblib
+2026-03-11 19:24:17,528 | INFO | Random Forest initialized
+2026-03-11 19:24:17,529 | INFO | XGBoost initialized
+2026-03-11 19:24:17,529 | INFO | SVM initialized
+2026-03-11 19:24:17,529 | INFO | LightGBM initialized
+2026-03-11 19:24:17,529 | INFO | Training random_forest
+2026-03-11 19:24:17,998 | INFO | random_forest metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:24:18,065 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\random_forest.joblib
+2026-03-11 19:24:18,065 | INFO | Training xgboost
+2026-03-11 19:24:18,575 | INFO | xgboost metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:24:18,583 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\xgboost.joblib
+2026-03-11 19:24:18,584 | INFO | Training svm
+2026-03-11 19:24:19,383 | INFO | svm metrics {'accuracy': 0.46904761904761905, 'precision': 0.22000566893424037, 'recall': 0.46904761904761905, 'f1_score': 0.29952149417303386}
+2026-03-11 19:24:19,386 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\svm.joblib
+2026-03-11 19:24:19,386 | INFO | Training lightgbm
+2026-03-11 19:24:21,277 | INFO | lightgbm metrics {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:24:21,303 | INFO | Model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\lightgbm.joblib
+2026-03-11 19:27:31,819 | INFO | Loaded motor dataset (273, 20)
+2026-03-11 19:27:31,826 | INFO | Saved motor features (273, 21)
+2026-03-11 19:29:19,680 | INFO | LSTM model initialized
+2026-03-11 19:29:22,161 | INFO | Epoch 0 loss nan
+2026-03-11 19:29:22,223 | INFO | Epoch 1 loss nan
+2026-03-11 19:29:22,264 | INFO | Epoch 2 loss nan
+2026-03-11 19:29:22,297 | INFO | Epoch 3 loss nan
+2026-03-11 19:29:22,318 | INFO | Epoch 4 loss nan
+2026-03-11 19:29:22,338 | INFO | Epoch 5 loss nan
+2026-03-11 19:29:22,359 | INFO | Epoch 6 loss nan
+2026-03-11 19:29:22,379 | INFO | Epoch 7 loss nan
+2026-03-11 19:29:22,399 | INFO | Epoch 8 loss nan
+2026-03-11 19:29:22,417 | INFO | Epoch 9 loss nan
+2026-03-11 19:29:22,435 | INFO | Epoch 10 loss nan
+2026-03-11 19:29:22,455 | INFO | Epoch 11 loss nan
+2026-03-11 19:29:22,475 | INFO | Epoch 12 loss nan
+2026-03-11 19:29:22,495 | INFO | Epoch 13 loss nan
+2026-03-11 19:29:22,513 | INFO | Epoch 14 loss nan
+2026-03-11 19:29:22,533 | INFO | Epoch 15 loss nan
+2026-03-11 19:29:22,549 | INFO | Epoch 16 loss nan
+2026-03-11 19:29:22,566 | INFO | Epoch 17 loss nan
+2026-03-11 19:29:22,586 | INFO | Epoch 18 loss nan
+2026-03-11 19:29:22,607 | INFO | Epoch 19 loss nan
+2026-03-11 19:29:22,626 | INFO | {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 19:29:22,636 | INFO | PyTorch model saved -> C:\Users\hp\Desktop\AI Based ASD\models\saved\motor_lstm.pt
+2026-03-11 19:33:39,803 | INFO | Loaded eye tracking (59, 5)
+2026-03-11 19:33:39,803 | INFO | Columns detected: ['ParticipantID', 'Gender', 'Age', 'Class', 'CARS Score']
+2026-03-11 19:33:39,809 | INFO | Saved eye features -> C:\Users\hp\Desktop\AI Based ASD\data\processed\eye_features.csv
+2026-03-11 19:35:18,119 | INFO | Loaded eye tracking (59, 5)
+2026-03-11 19:35:18,119 | INFO | Columns detected: ['ParticipantID', 'Gender', 'Age', 'Class', 'CARS Score']
+2026-03-11 19:35:18,119 | INFO | Saved eye features -> C:\Users\hp\Desktop\AI Based ASD\data\processed\eye_features.csv
+2026-03-11 19:35:26,891 | INFO | Loaded dataset (1, 19)
+2026-03-11 19:36:20,838 | INFO | Starting hyperparameter search
+2026-03-11 19:37:44,330 | INFO | Starting hyperparameter search
+2026-03-11 19:37:44,889 | INFO | Tuning random_forest
+2026-03-11 19:37:44,889 | INFO | Random Forest initialized
+2026-03-11 19:53:51,771 | INFO | Loaded dataset (1, 19)
+2026-03-11 19:55:26,583 | INFO | Starting hyperparameter search
+2026-03-11 19:55:27,039 | INFO | Tuning random_forest
+2026-03-11 19:55:27,041 | INFO | Random Forest initialized
+2026-03-11 19:57:11,884 | INFO | Best RF params {'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}
+2026-03-11 19:57:12,061 | INFO | Tuning xgboost
+2026-03-11 19:57:12,061 | INFO | XGBoost initialized
+2026-03-11 19:57:18,410 | INFO | Best XGB params {'subsample': 0.8, 'n_estimators': 200, 'max_depth': 6, 'learning_rate': 0.05}
+2026-03-11 19:57:18,475 | INFO | Tuning lightgbm
+2026-03-11 19:57:18,475 | INFO | LightGBM initialized
+2026-03-11 20:04:08,261 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:04:08,261 | WARNING | random_forest: dropping extra columns (149 -> 147)
+2026-03-11 20:04:08,574 | INFO | random_forest -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:04:08,716 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:04:08,718 | WARNING | xgboost: dropping extra columns (149 -> 147)
+2026-03-11 20:04:08,753 | INFO | xgboost -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:04:08,793 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:04:08,795 | WARNING | svm: dropping extra columns (149 -> 147)
+2026-03-11 20:07:19,463 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:07:19,463 | WARNING | random_forest: dropping extra columns (149 -> 147)
+2026-03-11 20:07:19,868 | INFO | random_forest -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:07:19,985 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:07:19,989 | WARNING | xgboost: dropping extra columns (149 -> 147)
+2026-03-11 20:07:20,024 | INFO | xgboost -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:07:20,051 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:07:20,055 | WARNING | svm: dropping extra columns (149 -> 147)
+2026-03-11 20:08:44,916 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:08:45,253 | INFO | random_forest -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:08:45,364 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:08:45,402 | INFO | xgboost -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:08:45,432 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:08:46,077 | INFO | svm -> {'accuracy': 0.47619047619047616, 'precision': 0.22675736961451246, 'recall': 0.47619047619047616, 'f1_score': 0.3072196620583717}
+2026-03-11 20:08:46,454 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:08:48,123 | INFO | lightgbm -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:09:43,351 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:09:43,664 | INFO | random_forest -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:09:43,764 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:09:43,805 | INFO | xgboost -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:09:43,837 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:09:44,439 | INFO | svm -> {'accuracy': 0.47619047619047616, 'precision': 0.22675736961451246, 'recall': 0.47619047619047616, 'f1_score': 0.3072196620583717}
+2026-03-11 20:09:44,814 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:09:46,382 | INFO | lightgbm -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:09:46,386 | INFO | 
+Model ranking:
+
+2026-03-11 20:09:46,386 | INFO |                accuracy  precision   recall  f1_score
+random_forest   1.00000   1.000000  1.00000   1.00000
+xgboost         1.00000   1.000000  1.00000   1.00000
+lightgbm        1.00000   1.000000  1.00000   1.00000
+svm             0.47619   0.226757  0.47619   0.30722
+2026-03-11 20:14:45,418 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:14:45,419 | WARNING | Converting multiclass labels to binary
+2026-03-11 20:14:46,302 | INFO | random_forest AUC = 0.282
+2026-03-11 20:14:46,399 | INFO | xgboost AUC = 0.623
+2026-03-11 20:14:48,206 | INFO | lightgbm AUC = 0.630
+2026-03-11 20:14:48,297 | INFO | Saved ROC curve -> outputs/plots/roc_curve.png
+2026-03-11 20:15:23,287 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:15:23,290 | WARNING | Converting multiclass labels to binary
+2026-03-11 20:15:23,813 | INFO | random_forest AUC = 0.282
+2026-03-11 20:15:23,909 | INFO | xgboost AUC = 0.623
+2026-03-11 20:15:25,557 | INFO | lightgbm AUC = 0.630
+2026-03-11 20:15:25,672 | INFO | Saved ROC curve -> outputs/plots/roc_curve.png
+2026-03-11 20:15:41,409 | INFO | Generating PR curve for random_forest
+2026-03-11 20:17:37,054 | INFO | Generating PR curve for random_forest
+2026-03-11 20:20:26,669 | INFO | Generating PR curve for random_forest
+2026-03-11 20:20:26,822 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:20:27,553 | INFO | Saved outputs/plots/pr_curve_random_forest.png
+2026-03-11 20:20:27,650 | INFO | Generating PR curve for xgboost
+2026-03-11 20:20:27,764 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:20:28,028 | INFO | Saved outputs/plots/pr_curve_xgboost.png
+2026-03-11 20:20:28,094 | INFO | Generating PR curve for svm
+2026-03-11 20:20:28,127 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:20:28,718 | INFO | Saved outputs/plots/pr_curve_svm.png
+2026-03-11 20:20:28,742 | INFO | Generating PR curve for lightgbm
+2026-03-11 20:20:28,900 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:20:30,574 | INFO | Saved outputs/plots/pr_curve_lightgbm.png
+2026-03-11 20:24:03,153 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:24:03,606 | INFO | random_forest -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:24:03,718 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:24:03,755 | INFO | xgboost -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:24:03,785 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:24:04,545 | INFO | svm -> {'accuracy': 0.47619047619047616, 'precision': 0.22675736961451246, 'recall': 0.47619047619047616, 'f1_score': 0.3072196620583717}
+2026-03-11 20:24:04,891 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:24:06,501 | INFO | lightgbm -> {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1_score': 1.0}
+2026-03-11 20:24:06,504 | INFO | 
+Model ranking:
+
+2026-03-11 20:24:06,504 | INFO |                accuracy  precision   recall  f1_score
+random_forest   1.00000   1.000000  1.00000   1.00000
+xgboost         1.00000   1.000000  1.00000   1.00000
+lightgbm        1.00000   1.000000  1.00000   1.00000
+svm             0.47619   0.226757  0.47619   0.30722
+2026-03-11 20:24:18,264 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:24:18,264 | WARNING | Converting multiclass labels to binary
+2026-03-11 20:24:18,611 | INFO | random_forest AUC = 0.282
+2026-03-11 20:24:18,685 | INFO | xgboost AUC = 0.623
+2026-03-11 20:24:20,323 | INFO | lightgbm AUC = 0.630
+2026-03-11 20:24:20,432 | INFO | Saved ROC curve -> outputs/plots/roc_curve.png
+2026-03-11 20:28:01,573 | INFO | Loaded model models/saved/random_forest.joblib
+2026-03-11 20:28:01,639 | INFO | Generating SHAP summary
+2026-03-11 20:28:11,092 | INFO | Saved outputs/plots/shap_summary.png
+2026-03-11 20:31:38,884 | INFO | Loaded model models/saved/random_forest.joblib
+2026-03-11 20:31:38,910 | INFO | Loaded dataset (2100, 150)
+2026-03-11 20:31:38,910 | WARNING | Dropping extra columns (149 -> 147)
+2026-03-11 20:31:38,924 | INFO | Generating SHAP summary
+2026-03-11 20:31:48,931 | INFO | Saved outputs/plots/shap_summary.png
+2026-03-11 20:31:48,962 | INFO | Generating SHAP feature importance
+2026-03-11 20:31:58,707 | INFO | Saved outputs/plots/shap_bar.png
+2026-03-11 20:31:59,452 | INFO | Saved outputs/plots/model_feature_importance.png
+2026-03-11 20:34:43,877 | INFO | Model loaded
+2026-03-11 20:35:41,141 | INFO | Model loaded
+2026-03-11 20:48:38,260 | INFO | Model loaded
+2026-03-11 20:54:05,059 | INFO | Model loaded
