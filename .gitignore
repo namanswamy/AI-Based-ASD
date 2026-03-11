@@ -8,11 +8,6 @@ __pycache__/
 venv/
 env/
 
-# Models
-models/saved/
-
-# Outputs
-outputs/
 
 # OS files
 .DS_Store
