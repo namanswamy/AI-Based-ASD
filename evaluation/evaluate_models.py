@@ -12,9 +12,7 @@ from utils.logger import get_logger
 logger = get_logger("MODEL_EVALUATION")
 
 
-# --------------------------------------------------
 # Load dataset
-# --------------------------------------------------
 
 def load_data():
 
@@ -38,9 +36,7 @@ def load_data():
     return X, y
 
 
-# --------------------------------------------------
 # Evaluate one model
-# --------------------------------------------------
 
 def evaluate_model(model_name):
 
@@ -54,17 +50,13 @@ def evaluate_model(model_name):
 
     X, y = load_data()
 
-    # -------------------------------
     # Handle missing values
-    # -------------------------------
 
     imputer = SimpleImputer(strategy="mean")
 
     X = imputer.fit_transform(X)
 
-    # -------------------------------
     # Align feature count
-    # -------------------------------
 
     expected = getattr(model, "n_features_in_", None)
 
@@ -90,9 +82,7 @@ def evaluate_model(model_name):
 
             X = np.hstack([X, np.zeros((X.shape[0], missing))])
 
-    # -------------------------------
-    # Predictions
-    # -------------------------------
+    # Prediction
 
     preds = model.predict(X)
 
@@ -112,9 +102,7 @@ def evaluate_model(model_name):
     return metrics
 
 
-# --------------------------------------------------
 # Evaluate all models
-# --------------------------------------------------
 
 def run():
 
@@ -136,8 +124,6 @@ def run():
 
     return results
 
-
-# --------------------------------------------------
 
 if __name__ == "__main__":
 
