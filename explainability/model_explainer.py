@@ -20,7 +20,6 @@ class ModelExplainer:
 
         self.data = self.load_data()
 
-        # Remove label + ID columns
         self.X = self.data.drop(
             columns=["Class/ASD", "participant_id"],
             errors="ignore"
@@ -28,7 +27,6 @@ class ModelExplainer:
 
         self.y = self.data["Class/ASD"]
 
-        # Align features with model if necessary
         if hasattr(self.model, "n_features_in_"):
 
             expected = self.model.n_features_in_
@@ -41,9 +39,7 @@ class ModelExplainer:
 
         self.explainer = shap.TreeExplainer(self.model)
 
-    # ---------------------------------------------------
     # Load dataset
-    # ---------------------------------------------------
 
     def load_data(self):
 
@@ -58,9 +54,7 @@ class ModelExplainer:
 
         return df
 
-    # ---------------------------------------------------
     # Global SHAP explanation
-    # ---------------------------------------------------
 
     def shap_summary(self):
 
@@ -84,9 +78,7 @@ class ModelExplainer:
 
         plt.close()
 
-    # ---------------------------------------------------
     # SHAP Feature Importance
-    # ---------------------------------------------------
 
     def shap_bar(self):
 
@@ -111,9 +103,7 @@ class ModelExplainer:
 
         plt.close()
 
-    # ---------------------------------------------------
     # Local explanation for a sample
-    # ---------------------------------------------------
 
     def explain_instance(self, index):
 
@@ -129,9 +119,7 @@ class ModelExplainer:
             sample
         )
 
-    # ---------------------------------------------------
     # Feature importance using model
-    # ---------------------------------------------------
 
     def feature_importance(self):
 
