@@ -17,9 +17,7 @@ class FusionModel:
 
         logger.info("Fusion model created")
 
-    # ----------------------------------------------------
     # Tabular prediction
-    # ----------------------------------------------------
 
     def predict_tabular(self, X):
 
@@ -27,9 +25,7 @@ class FusionModel:
 
         return prob
 
-    # ----------------------------------------------------
     # Motor prediction
-    # ----------------------------------------------------
 
     def predict_motor(self, model, sequence):
 
@@ -43,9 +39,7 @@ class FusionModel:
 
         return prob.cpu().numpy()
 
-    # ----------------------------------------------------
     # Eye prediction
-    # ----------------------------------------------------
 
     def predict_eye(self, model, sequence):
 
@@ -59,9 +53,7 @@ class FusionModel:
 
         return prob.cpu().numpy()
 
-    # ----------------------------------------------------
     # Multimodal fusion
-    # ----------------------------------------------------
 
     def predict(self, tabular, motor, eye):
 
