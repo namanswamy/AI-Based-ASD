@@ -1,0 +1,2 @@
+ParticipantID_mean,ParticipantID_std,ParticipantID_var,ParticipantID_max,ParticipantID_min,Age_mean,Age_std,Age_var,Age_max,Age_min,CARS Score_mean,CARS Score_std,CARS Score_var,CARS Score_max,CARS Score_min,motion_mean,motion_std,participant_id,Class/ASD
+30.0,17.175564037317667,295.0,59,1,7.8830508474576275,2.7912518846526293,7.791087083576855,12.9,2.7,32.96551724137931,6.5518959013004645,42.92733990147783,45.0,17.0,,,0,0
