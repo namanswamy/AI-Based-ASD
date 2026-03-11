@@ -22,9 +22,7 @@ class EyeFeatureExtractor:
 
         return df
 
-    # --------------------------------------------------
     # Feature extraction
-    # --------------------------------------------------
 
     def extract_features(self, df):
 
@@ -35,7 +33,6 @@ class EyeFeatureExtractor:
         if len(numeric_cols) == 0:
             raise ValueError("No numeric columns found in eye tracking data")
 
-        # Statistical features
         for col in numeric_cols:
 
             features[f"{col}_mean"] = df[col].mean()
@@ -44,7 +41,6 @@ class EyeFeatureExtractor:
             features[f"{col}_max"] = df[col].max()
             features[f"{col}_min"] = df[col].min()
 
-        # Motion magnitude if coordinates exist
         if len(numeric_cols) >= 2:
 
             diff = np.diff(df[numeric_cols].values, axis=0)
@@ -54,26 +50,17 @@ class EyeFeatureExtractor:
             features["motion_mean"] = np.mean(motion)
             features["motion_std"] = np.std(motion)
 
-        # Blink rate if blink column exists
         if "blink" in df.columns:
 
             features["blink_rate"] = df["blink"].sum() / len(df)
 
-        # Convert to DataFrame
         features_df = pd.DataFrame([features])
-
-        # --------------------------------------------------
-        # REQUIRED COLUMNS FOR TRAINING PIPELINE
-        # --------------------------------------------------
 
         features_df["participant_id"] = 0
 
-        # placeholder label (will be replaced by merge later)
         features_df["Class/ASD"] = 0
 
         return features_df
-
-    # --------------------------------------------------
 
     def process(self):
 
