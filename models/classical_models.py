@@ -8,10 +8,7 @@ from utils.logger import get_logger
 
 logger = get_logger("CLASSICAL_MODELS")
 
-
-# ---------------------------------------------------------
 # Random Forest
-# ---------------------------------------------------------
 
 def build_random_forest():
 
@@ -28,10 +25,7 @@ def build_random_forest():
 
     return model
 
-
-# ---------------------------------------------------------
 # Support Vector Machine
-# ---------------------------------------------------------
 
 def build_svm():
 
@@ -46,10 +40,7 @@ def build_svm():
 
     return model
 
-
-# ---------------------------------------------------------
 # XGBoost
-# ---------------------------------------------------------
 
 def build_xgboost():
 
@@ -66,10 +57,7 @@ def build_xgboost():
 
     return model
 
-
-# ---------------------------------------------------------
 # LightGBM
-# ---------------------------------------------------------
 
 def build_lightgbm():
 
