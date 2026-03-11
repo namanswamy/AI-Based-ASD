@@ -10,7 +10,6 @@ def run():
         "Answer the following behavioral screening questions."
     )
 
-    # Example questionnaire (AQ-style)
     q1 = st.slider("Difficulty with social interaction", 0, 5, 2)
     q2 = st.slider("Prefers routines and repetition", 0, 5, 2)
     q3 = st.slider("Avoids eye contact", 0, 5, 2)
@@ -30,7 +29,6 @@ def run():
 
     gender_val = 1 if gender == "Male" else 0
 
-    # Create feature vector (expandable later)
     features = [
         q1, q2, q3, q4, q5,
         q6, q7, q8,
@@ -38,7 +36,6 @@ def run():
         gender_val
     ]
 
-    # Pad vector to 47 features (required by model)
     while len(features) < 47:
         features.append(0)
 
