@@ -424,4 +424,4 @@ It is intended for **research and educational purposes only**.
 
 # 👨‍💻 Author
 
-Developed as an **AI research platform for Autism Spectrum Disorder prediction** using machine learning and explainable AI techniques.
+Developed by **Suhani Sengar for Autism Spectrum Disorder prediction** using machine learning and explainable AI techniques.
