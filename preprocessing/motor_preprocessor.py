@@ -23,10 +23,8 @@ class MotorFeatureExtractor:
 
         df = self.load()
 
-        # keep only numeric columns
         numeric = df.select_dtypes(include="number")
 
-        # create label column if missing
         if "label" not in numeric.columns:
 
             numeric["label"] = 0
