@@ -13,9 +13,7 @@ from utils.logger import get_logger
 logger = get_logger("ROC_ANALYSIS")
 
 
-# ---------------------------------------------------
 # Load dataset
-# ---------------------------------------------------
 
 def load_data():
 
@@ -28,7 +26,6 @@ def load_data():
 
     logger.info(f"Loaded dataset {df.shape}")
 
-    # Convert labels to binary (ASD vs Non-ASD)
     y = df["Class/ASD"]
 
     if y.nunique() > 2:
@@ -43,9 +40,7 @@ def load_data():
     return X, y
 
 
-# ---------------------------------------------------
 # Align features with trained model
-# ---------------------------------------------------
 
 def align_features(model, X):
 
@@ -73,9 +68,7 @@ def align_features(model, X):
     return X.values
 
 
-# ---------------------------------------------------
 # ROC plotting
-# ---------------------------------------------------
 
 def run():
 
