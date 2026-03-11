@@ -15,10 +15,7 @@ class ClinicalPreprocessor:
     def __init__(self):
         self.scaler = StandardScaler()
 
-    # --------------------------------------------------
     # Load datasets
-    # --------------------------------------------------
-
     def load_data(self):
 
         clinical_path = os.path.join(
@@ -42,15 +39,12 @@ class ClinicalPreprocessor:
 
         return clinical, cbcl
 
-    # --------------------------------------------------
     # Clean dataset
-    # --------------------------------------------------
 
     def clean(self, df):
 
         df = df.drop_duplicates()
 
-        # Fill numeric missing values
         numeric_cols = df.select_dtypes(include="number").columns
 
         if len(numeric_cols) > 0:
@@ -60,15 +54,10 @@ class ClinicalPreprocessor:
 
         return df
 
-    # --------------------------------------------------
-    # Scale numeric features
-    # --------------------------------------------------
-
     def scale(self, df):
 
         numeric = df.select_dtypes(include="number")
 
-        # If there are no numeric columns
         if numeric.shape[1] == 0:
 
             logger.warning(
@@ -86,9 +75,7 @@ class ClinicalPreprocessor:
 
         return scaled_df
 
-    # --------------------------------------------------
     # Main processing pipeline
-    # --------------------------------------------------
 
     def process(self):
 
@@ -125,9 +112,7 @@ class ClinicalPreprocessor:
         logger.info(f"Saved: {cbcl_output}")
 
 
-# --------------------------------------------------
 # Entry point
-# --------------------------------------------------
 
 def run():
 
