@@ -19,9 +19,7 @@ class TabularPreprocessor:
 
         self.encoders = {}
 
-    # ---------------------------------------------
     # Load datasets
-    # ---------------------------------------------
 
     def load_datasets(self):
 
@@ -49,9 +47,7 @@ class TabularPreprocessor:
 
         return pd.concat(dataframes, ignore_index=True)
 
-    # ---------------------------------------------
     # Encode categorical features
-    # ---------------------------------------------
 
     def encode_categorical(self, df):
 
@@ -67,9 +63,7 @@ class TabularPreprocessor:
 
         return df
 
-    # ---------------------------------------------
     # Scale numeric features
-    # ---------------------------------------------
 
     def scale_features(self, df, label):
 
@@ -88,9 +82,7 @@ class TabularPreprocessor:
 
         return X_scaled
 
-    # ---------------------------------------------
     # Run pipeline
-    # ---------------------------------------------
 
     def process(self):
 
