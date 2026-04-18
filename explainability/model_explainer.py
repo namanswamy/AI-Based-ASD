@@ -1,10 +1,9 @@
 import os
 import shap
 import joblib
-import pandas as pd
 import matplotlib.pyplot as plt
 
-from utils.config import PROCESSED_DATA_DIR
+from utils.data_loader import load_split_dataset
 from utils.logger import get_logger
 
 logger = get_logger("MODEL_EXPLAINER")
@@ -18,41 +17,20 @@ class ModelExplainer:
 
         logger.info(f"Loaded model {model_path}")
 
-        self.data = self.load_data()
+        # Use test set only for explanations
+        _, X_test, _, self.y = load_split_dataset()
 
-        self.X = self.data.drop(
-            columns=["Class/ASD", "participant_id"],
-            errors="ignore"
-        )
+        # Align features
+        expected = getattr(self.model, "n_features_in_", None)
+        if expected is not None and X_test.shape[1] > expected:
+            logger.warning(
+                f"Dropping extra columns ({X_test.shape[1]} -> {expected})"
+            )
+            X_test = X_test.iloc[:, :expected]
 
-        self.y = self.data["Class/ASD"]
-
-        if hasattr(self.model, "n_features_in_"):
-
-            expected = self.model.n_features_in_
-
-            if self.X.shape[1] > expected:
-                logger.warning(
-                    f"Dropping extra columns ({self.X.shape[1]} -> {expected})"
-                )
-                self.X = self.X.iloc[:, :expected]
+        self.X = X_test
 
         self.explainer = shap.TreeExplainer(self.model)
-
-    # Load dataset
-
-    def load_data(self):
-
-        path = os.path.join(
-            PROCESSED_DATA_DIR,
-            "multimodal_dataset.csv"
-        )
-
-        df = pd.read_csv(path)
-
-        logger.info(f"Loaded dataset {df.shape}")
-
-        return df
 
     # Global SHAP explanation
 
@@ -72,7 +50,7 @@ class ModelExplainer:
 
         save_path = "outputs/plots/shap_summary.png"
 
-        plt.savefig(save_path)
+        plt.savefig(save_path, bbox_inches="tight")
 
         logger.info(f"Saved {save_path}")
 
@@ -97,7 +75,7 @@ class ModelExplainer:
 
         save_path = "outputs/plots/shap_bar.png"
 
-        plt.savefig(save_path)
+        plt.savefig(save_path, bbox_inches="tight")
 
         logger.info(f"Saved {save_path}")
 
@@ -131,6 +109,7 @@ class ModelExplainer:
 
         features = self.X.columns
 
+        import pandas as pd
         df = pd.DataFrame({
             "feature": features,
             "importance": importances
@@ -154,7 +133,7 @@ class ModelExplainer:
 
         save_path = "outputs/plots/model_feature_importance.png"
 
-        plt.savefig(save_path)
+        plt.savefig(save_path, bbox_inches="tight")
 
         logger.info(f"Saved {save_path}")
 

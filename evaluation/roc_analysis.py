@@ -1,82 +1,24 @@
 import os
-import pandas as pd
-import numpy as np
 import joblib
+import pandas as pd
 import matplotlib.pyplot as plt
 
 from sklearn.metrics import roc_curve, auc
-from sklearn.impute import SimpleImputer
 
-from utils.config import PROCESSED_DATA_DIR
+from utils.data_loader import load_split_dataset
 from utils.logger import get_logger
 
 logger = get_logger("ROC_ANALYSIS")
 
 
-# Load dataset
-
-def load_data():
-
-    path = os.path.join(
-        PROCESSED_DATA_DIR,
-        "multimodal_dataset.csv"
-    )
-
-    df = pd.read_csv(path)
-
-    logger.info(f"Loaded dataset {df.shape}")
-
-    y = df["Class/ASD"]
-
-    if y.nunique() > 2:
-        logger.warning("Converting multiclass labels to binary")
-        y = (y > 0).astype(int)
-
-    X = df.drop(
-        columns=["Class/ASD", "participant_id"],
-        errors="ignore"
-    )
-
-    return X, y
-
-
-# Align features with trained model
-
-def align_features(model, X):
-
-    expected = getattr(model, "n_features_in_", None)
-
-    if expected is None:
-        return X.values
-
-    if X.shape[1] > expected:
-        logger.warning(
-            f"Dropping extra columns ({X.shape[1]} -> {expected})"
-        )
-        X = X.iloc[:, :expected]
-
-    elif X.shape[1] < expected:
-        logger.warning(
-            f"Adding missing columns ({X.shape[1]} -> {expected})"
-        )
-
-        missing = expected - X.shape[1]
-
-        for i in range(missing):
-            X[f"missing_{i}"] = 0
-
-    return X.values
-
-
-# ROC plotting
-
 def run():
 
-    X, y = load_data()
+    _, X_test, _, y_test = load_split_dataset()
 
-    # Handle NaN values
-    imputer = SimpleImputer(strategy="mean")
-    X = pd.DataFrame(imputer.fit_transform(X))
+    # Convert to binary if multiclass
+    if y_test.nunique() > 2:
+        logger.warning("Converting multiclass labels to binary")
+        y_test = (y_test > 0).astype(int)
 
     models = [
         "random_forest",
@@ -96,11 +38,15 @@ def run():
 
         model = joblib.load(model_path)
 
-        X_aligned = align_features(model, X)
+        # Align features
+        expected = getattr(model, "n_features_in_", None)
+        X = X_test.values
+        if expected is not None and X.shape[1] > expected:
+            X = X[:, :expected]
 
-        probs = model.predict_proba(X_aligned)[:, 1]
+        probs = model.predict_proba(X)[:, 1]
 
-        fpr, tpr, _ = roc_curve(y, probs)
+        fpr, tpr, _ = roc_curve(y_test, probs)
 
         roc_auc = auc(fpr, tpr)
 
@@ -129,7 +75,7 @@ def run():
 
     logger.info(f"Saved ROC curve -> {save_path}")
 
-    plt.show()
+    plt.close()
 
 
 if __name__ == "__main__":

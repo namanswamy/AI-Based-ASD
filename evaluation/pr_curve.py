@@ -1,97 +1,32 @@
 import os
-import numpy as np
-import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import average_precision_score
-from sklearn.impute import SimpleImputer
+from sklearn.metrics import precision_recall_curve, average_precision_score
 
-from utils.config import PROCESSED_DATA_DIR
+from utils.data_loader import load_split_dataset
 from utils.logger import get_logger
 
 logger = get_logger("PR_CURVE")
 
 
-# Load dataset
-
-def load_data():
-
-    df = pd.read_csv(
-        os.path.join(PROCESSED_DATA_DIR, "multimodal_dataset.csv")
-    )
-
-    logger.info(f"Loaded dataset {df.shape}")
-
-    y = df["Class/ASD"]
-
-    if y.nunique() > 2:
-        logger.warning("Multiclass detected - converting to binary")
-        y = (y > 0).astype(int)
-
-    X = df.drop(
-        columns=["Class/ASD", "participant_id"],
-        errors="ignore"
-    )
-
-    return X, y
-
-
-# Feature alignment
-
-def align_features(model, X):
-
-    expected = getattr(model, "n_features_in_", None)
-
-    if expected is None:
-        return X
-
-    if X.shape[1] > expected:
-
-        logger.warning(
-            f"Dropping extra columns ({X.shape[1]} -> {expected})"
-        )
-
-        X = X.iloc[:, :expected]
-
-    elif X.shape[1] < expected:
-
-        logger.warning(
-            f"Adding missing columns ({X.shape[1]} -> {expected})"
-        )
-
-        missing = expected - X.shape[1]
-
-        X = np.hstack([X.values, np.zeros((X.shape[0], missing))])
-
-        return X
-
-    return X
-
-
-# Plot PR curve
-
-def plot_pr_curve(model_name):
+def plot_pr_curve(model_name, X_test, y_test):
 
     logger.info(f"Generating PR curve for {model_name}")
 
-    model = joblib.load(
-        f"models/saved/{model_name}.joblib"
-    )
+    model = joblib.load(f"models/saved/{model_name}.joblib")
 
-    X, y = load_data()
-
-    imputer = SimpleImputer(strategy="mean")
-    X = imputer.fit_transform(X)
-
-    X = align_features(model, pd.DataFrame(X))
+    # Align features
+    expected = getattr(model, "n_features_in_", None)
+    X = X_test.values
+    if expected is not None and X.shape[1] > expected:
+        X = X[:, :expected]
 
     probs = model.predict_proba(X)[:, 1]
 
-    precision, recall, _ = precision_recall_curve(y, probs)
+    precision, recall, _ = precision_recall_curve(y_test, probs)
 
-    ap = average_precision_score(y, probs)
+    ap = average_precision_score(y_test, probs)
 
     plt.figure(figsize=(8, 6))
 
@@ -119,9 +54,14 @@ def plot_pr_curve(model_name):
     plt.close()
 
 
-# Run for all models
-
 def run():
+
+    _, X_test, _, y_test = load_split_dataset()
+
+    # Convert to binary if multiclass
+    if y_test.nunique() > 2:
+        logger.warning("Multiclass detected - converting to binary")
+        y_test = (y_test > 0).astype(int)
 
     models = [
         "random_forest",
@@ -133,7 +73,7 @@ def run():
     for m in models:
 
         try:
-            plot_pr_curve(m)
+            plot_pr_curve(m, X_test, y_test)
 
         except Exception as e:
 
